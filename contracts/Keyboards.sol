@@ -9,5 +9,9 @@ contract Keyboards {
     function getKeyboards() view public returns (string[] memory) {
         return createKeyboards;
     }
+
+    function create(string calldata _description) external {
+        createKeyboards.push(_description);
+    }
 }
 
