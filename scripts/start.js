@@ -5,11 +5,14 @@ const keyboardsContractFactory = await hre.ethers.getContractFactory("Keyboards"
 
   console.log("Contract deployed to:", keyboardsContract.address);
 
-  const keyboards = await keyboardsContract.getKeyboards();
+  let keyboards = await keyboardsContract.getKeyboards();
   console.log("We got the keyboards!", keyboards);
 
-  const keyboardTxn = await keyboardsContract.getKeyboards();
+  const keyboardTxn = await keyboardsContract.create("A really great keyboard!");
   await keyboardTxn.wait();
+
+  keyboards = await keyboardsContract.getKeyboards();
+  console.log("We got the keyboards!", keyboards);
 }
 
 const runMain = async () => {
