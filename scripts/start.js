@@ -7,6 +7,9 @@ const keyboardsContractFactory = await hre.ethers.getContractFactory("Keyboards"
 
   const keyboards = await keyboardsContract.getKeyboards();
   console.log("We got the keyboards!", keyboards);
+
+  const keyboardTxn = await keyboardsContract.getKeyboards();
+  await keyboardTxn.wait();
 }
 
 const runMain = async () => {
