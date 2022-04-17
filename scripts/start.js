@@ -1,20 +1,20 @@
 const main = async () => {
-    const keyboardContractFactory = await hre.ethers.getContractFactory("Keyboards");
-    const keyboardsContract = await keyBoardsContractFactory.deploy();
-    await keyboardContract.deploy();
+const keyboardsContractFactory = await hre.ethers.getContractFactory("Keyboards");
+  const keyboardsContract = await keyboardsContractFactory.deploy();
+  await keyboardsContract.deployed();
 
-    console.log("Contract deployed to:", keyboardsContract.address);
+  console.log("Contract deployed to:", keyboardsContract.address);
 
-    const keyboards = await keyboardContract.getKeyboards();
-    console.log("We got the keyboards!", keyboards);
+  const keyboards = await keyboardsContract.getKeyboards();
+  console.log("We got the keyboards!", keyboards);
 }
 
 const runMain = async () => {
     try {
-        main();
+        await main();
         process.exit(0);
     } catch(error) {
-        console.error(error);
+        console.log(error);
         process.exit(1);
     }
 }
